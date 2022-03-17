@@ -20,18 +20,18 @@ public class EmployeeDetails implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorities =new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(employee.getRole()));
+        authorities.add(new SimpleGrantedAuthority(employee.role()));
         return authorities;
     }
 
     @Override
     public String getPassword() {
-        return employee.getPassword();
+        return employee.password();
     }
 
     @Override
     public String getUsername() {
-        return employee.getEmail();
+        return employee.email();
     }
 
     @Override

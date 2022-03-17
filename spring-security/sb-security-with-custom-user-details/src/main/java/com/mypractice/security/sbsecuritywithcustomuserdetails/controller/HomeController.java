@@ -27,7 +27,7 @@ public final class HomeController {
         return "Hello use you don't to authentication for accessing this resource";
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Employee> findAllEmployee(){
         return repository.findAll();
     }
