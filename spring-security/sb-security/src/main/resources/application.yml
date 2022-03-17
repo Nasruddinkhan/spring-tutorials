@@ -1,0 +1,13 @@
+server:
+  port: 9222
+# spring security also provide default the username is user & password will provide on logs
+# crul url for post man
+#  curl --location --request GET 'http://localhost:9222/?name=nasruddinkhan' \
+#--header 'Authorization: Basic bmFzcnVkZGluOm5hc3J1ZGRpbg==' \
+#--header 'Cookie: JSESSIONID=345B7AD17CF3ABBFD2DC5490E3ECBF6A' \
+#  --data-raw ''
+spring:
+  security:
+    user:
+      name: nasruddin
+      password: nasruddin

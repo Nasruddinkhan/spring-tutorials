@@ -1,0 +1,7 @@
+server:
+  port: 9222
+spring:
+  security:
+    user:
+      name: nasruddin
+      password: nasruddin
