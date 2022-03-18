@@ -10,6 +10,7 @@ public final class HomeController {
 
     @GetMapping("/{name}")
     public String sayHello(@PathVariable String name){
+
         return "Hello "+name+", <br> you can access this resource only if you have authenticated";
     }
 
