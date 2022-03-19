@@ -1,0 +1,15 @@
+
+server:
+  port: 9123
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: root
+    url: jdbc:mysql://localhost:3306/sbsecurityjdbc
+    username: root
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true

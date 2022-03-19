@@ -16,10 +16,6 @@ public class DataRoute extends RouteBuilder {
     @Override
     public void configure() throws Exception {
         from("{{files.source-location}}")
-                .tracing()
-                .log(">>> ${body.id}")
-                .log(">>> ${body.name}")
-                .log(">>> ${body}")
                 .to("{{files.destination-location}}" );
     }
 }
