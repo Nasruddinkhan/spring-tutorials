@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="result" class="com.mypractice.bean.Result">
+		<constructor-arg>
+			<bean class="com.mypractice.bean.StudentMark">
+				<property name="name" value="Nasruddin khan" />
+			</bean>
+		</constructor-arg>
+		<constructor-arg value="700" type="java.lang.Integer" />
+	</bean>
+	<bean id="main" class="com.mypractice.main.MainController">
+		<constructor-arg>
+			<bean name="service"
+				class="com.mypractice.service.EmployeeServiceImpl">
+				<constructor-arg>
+					<bean name="empDao" class="com.mypractice.dao.EmployeeDaoImpl" />
+				</constructor-arg>
+			</bean>
+		</constructor-arg>
+	</bean>
+</beans>

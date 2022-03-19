@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean id="controller"
+		class="com.mypractice.controller.EmpController">
+		<property name="service" ref="empService" />
+		<property name="dto" ref="empDto" />
+	</bean>
+	<bean id="empBO" class="com.mypractice.bo.EmployeeBO" />
+	<bean id="empDto" class="com.mypractice.dto.EmployeeDTO" />
+	<bean id="empService"
+		class="com.mypractice.service.EmployeeServiceImpl">
+		<property name="dao" ref="empDoa" />
+		<property name="bo" ref="empBO" />
+	</bean>
+	<bean id="empDoa" class="com.mypractice.dao.EmployeeDAOImpl">
+	<property name="ds" ref="dataSource"/>
+	</bean>
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		scope="singleton">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/spring-source" />
+		<property name="username" value="root" />
+		<property name="password" value="root" />
+	</bean>
+</beans>

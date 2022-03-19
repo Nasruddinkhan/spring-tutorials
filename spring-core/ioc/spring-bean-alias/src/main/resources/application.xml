@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<bean id="dt" class="java.util.Date" />
+	<bean id="emp" class="com.mypractice.bean.Employee">
+		<constructor-arg name="doj" ref="date" />
+		<property name="empId" value="101" />
+		<property name="name" value="Nasruddin khan" />
+	</bean>
+	<alias name="dt" alias="date" />
+	<alias name="emp" alias="employee"/>
+	<alias alias="contractEmp" name="employee"/>
+	<alias alias="permanentEmp" name="contractEmp"/>
+	
+</beans>

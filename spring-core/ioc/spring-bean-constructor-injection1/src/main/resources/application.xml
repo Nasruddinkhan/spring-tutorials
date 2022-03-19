@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+  <!-- Spring beans cfgs -->
+   
+    <bean id="emp" class="com.mypractice.bean.Employee">
+    <constructor-arg value="101" type="int"/>
+    <constructor-arg value="Nasruddin"/>
+    <constructor-arg value="15000" type="double"/>
+    </bean>
+     <bean id="salary"  class="com.mypractice.bean.SalaryCalulation">
+        <constructor-arg  value="1600" index="2"  name="othAllow"/>
+        <constructor-arg  value="80000"  index="1" name="hr"/>
+        <constructor-arg  value="20000" index="0" name="ba"/>
+     </bean>
+    
+    
+
+</beans>   

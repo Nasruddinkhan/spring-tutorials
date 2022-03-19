@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<!-- Cfg Dependent class -->
+	<bean id="amzonInvoice" class="com.mypractice.beans.AmazonInvoice" />
+	<bean id="flipcartInvoice"
+		class="com.mypractice.beans.FlipCartInvoice" />
+	<bean id="invoiceSystem"
+		class="com.mypractice.beans.InvoiceSystem">
+		<!-- Cfg Taget class -->
+			<constructor-arg name="invoice" ref="flipcartInvoice" />
+<!-- 			<constructor-arg name="invoice" ref="amzonInvoice" />
+ -->	</bean>
+
+
+</beans>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+	<bean id="dt" class="java.util.Date" />
+	<bean id="dt1" class="java.util.Date">
+		<property name="year" value="2020" />
+		<property name="month" value="11" />
+		<property name="date" value="21" />
+	</bean>
+	<bean id="dtDOJ1" class="java.util.Date">
+		<property name="year" value="90" />
+		<property name="month" value="8" />
+		<property name="date" value="20" />
+	</bean>
+	<bean id="dtDOJ2" class="java.util.Date">
+		<property name="year" value="80" />
+		<property name="month" value="8" />
+		<property name="date" value="20" />
+	</bean>
+
+	<bean id="dtDOJ3" class="java.util.Date">
+		<property name="year" value="90" />
+		<property name="month" value="4" />
+		<property name="date" value="21" />
+	</bean>
+
+
+	<bean id="dtDOJ4" class="java.util.Date">
+		<property name="year" value="117" />
+		<property name="month" value="7" />
+		<property name="date" value="23" />
+	</bean>
+	<bean id="empInfo" class="com.mypractice.bean.EmployeeInfo">
+		<property name="phoneNumbers">
+			<set value-type="java.lang.String">
+				<value>9595757518</value>
+				<value>9987353738</value>
+			</set>
+		</property>
+		<property name="dates">
+			<set value-type="java.util.Date">
+				<ref bean="dt" />
+				<ref bean="dt1" />
+			</set>
+		</property>
+	</bean>
+	<bean id="resturant" class="com.mypractice.bean.Resturant">
+		<constructor-arg name="menus">
+			<props>
+				<prop key="NV">Non-Veg</prop>
+				<prop key="V">Veg</prop>
+				<prop key="CHI">Noodle</prop>
+			</props>
+		</constructor-arg>
+		<!-- Null injector <constructor-arg name="menus"><null/></constructor-arg> -->
+
+	</bean>
+	<bean id="company" class="com.mypractice.bean.Company">
+		<property name="empName">
+			<list value-type="java.lang.String">
+				<value>Nasruddin </value>
+				<value>Zaid</value>
+				<value>Sattar</value>
+				<value>Saif</value>
+			</list>
+		</property>
+		<property name="joinningDate">
+			<list value-type="java.util.Date">
+				<ref bean="dt1" />
+				<ref bean="dtDOJ1" />
+				<ref bean="dtDOJ2" />
+				<ref bean="dtDOJ3" />
+			</list>
+		</property>
+		<property name="objList">
+			<list>
+				<value>Nasruddin</value>
+				<value>9987353738</value>
+				<ref bean="dt1" />
+
+			</list>
+		</property>
+	</bean>
+	<bean id="skilMst" class="com.mypractice.bean.SkillMaster">
+		<property name="emplSkill">
+			<map value-type="java.util.Map">
+				<entry key="NK">
+					<list>
+						<value>Java Frontend</value>
+						<value>Java Backend</value>
+					</list>
+				</entry>
+			</map>
+		</property>
+		<property name="addJoiningDate">
+			<map value-type="java.util.Map">
+				<entry key="NK" value-ref="dt1" />
+			</map>
+		</property>
+	</bean>
+	<bean id="sysDt" class="java.util.Date" />
+	<bean id="dobDt" class="java.util.Date">
+		<property name="year" value="90" />
+		<property name="month" value="9" />
+		<property name="date" value="27" />
+	</bean>
+
+	<util:list id="empList" list-class="java.util.LinkedList"
+		value-type="java.lang.String">
+		<value>raja</value>
+		<value>raja</value>
+		<value>rani</value>
+	</util:list>
+
+	<util:list id="dtList" list-class="java.util.Vector"
+		value-type="java.util.Date">
+		<ref bean="sysDt" />
+		<ref bean="dobDt" />
+	</util:list>
+
+	<util:set id="phonesSet" set-class="java.util.HashSet"
+		value-type="java.lang.Long">
+		<value>99999999999</value>
+		<value>88888888888</value>
+		<value>77777777777</value>
+		<value>99999999999</value>
+	</util:set>
+	<util:set id="dtSet" set-class="java.util.LinkedHashSet"
+		value-type="java.util.Date">
+		<ref bean="sysDt" />
+		<ref bean="dobDt" />
+		<ref bean="sysDt" />
+	</util:set>
+
+	<util:map id="capitalsMap" map-class="java.util.Hashtable"
+		key-type="java.lang.String" value-type="java.lang.String">
+		<entry key="india" value="newDelhi" />
+		<entry>
+			<key>
+				<value>China</value>
+			</key>
+			<value>bejing</value>
+		</entry>
+		<entry key="pakistan" value="islamabad" />
+	</util:map>
+
+	<util:map id="dtMap" map-class="java.util.LinkedHashMap"
+		key-type="java.lang.String" value-type="java.util.Date">
+		<entry key="sysDate" value-ref="sysDt" />
+		<entry key="dobDate" value-ref="dobDt" />
+	</util:map>
+
+	<util:properties id="stateCapitals">
+		<prop key="AP">Amaravathi</prop>
+		<prop key="TS">Hyderabad</prop>
+		<prop key="MP">Bhopal</prop>
+		<prop key="MH">Mumbai</prop>
+	</util:properties>
+
+
+</beans>
