@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   const urlParams = new URLSearchParams(window.location.search);
+   const authCode = urlParams.get('code'),
+   state = urlParams.get('state'),
+   error = urlParams.get('error'),
+   error_description = urlParams.get('error_description');
+    if(error) {
+        window.alert("The following error took place "+error + "error description is "+error_description);
+    }else{
+		 window.opener.postAuthorize(state, authCode);
+    }
+    window.close();
+</script>
+</body>
+</html>

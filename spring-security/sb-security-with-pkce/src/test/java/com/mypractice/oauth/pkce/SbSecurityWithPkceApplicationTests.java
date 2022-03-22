@@ -1,10 +1,10 @@
-package com.mypractice.resourceserver;
+package com.mypractice.oauth.pkce;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ResourceserverApplicationTests {
+class SbSecurityWithPkceApplicationTests {
 
 	@Test
 	void contextLoads() {
