@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="byType" default-autowire-candidates="tp1,tp2"  xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+  <!-- Dependent bean class cfg -->
+  <bean id="tp1"  class="com.mypractice.beans.TourPlan" >
+      <property name="places">
+          <list>
+              <value>Simla</value>
+              <value>manali</value>
+              <value> Wagha</value>
+              <value>masoori</value>
+          </list>
+      </property>
+  </bean>
+  
+      <bean id="tp2"  class="com.mypractice.beans.TourPlan"  >
+      <property name="places">
+          <list>
+              <value>munnar Hills</value>
+              <value>MahaBhaleswar</value>
+              <value>ooty</value>
+              <value>AnanthaGiri</value>
+          </list>
+      </property>
+  </bean> 
+  
+   <bean id="cal" class="java.util.Calendar" factory-method="getInstance"/> 
+  
+  <!-- Target bean class cfg -->
+   <bean id="agent"  class="com.mypractice.beans.TravelAgent"  autowire="constructor" >
+      <property name="cal"  ref="cal"/>
+   </bean>
+
+</beans>
