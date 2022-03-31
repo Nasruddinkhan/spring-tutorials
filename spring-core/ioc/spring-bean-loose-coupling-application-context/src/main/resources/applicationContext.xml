@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="true" xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+    <!-- Cfg Dependent class -->
+    <bean id="dtdCourier" class="com.mypractice.beans.DTDC" scope="singleton" lazy-init="default"/>
+    <bean id="bDartCourier" class="com.mypractice.beans.BlueDart" lazy-init="true"/>
+    <bean id="ffCourier" class="com.mypractice.beans.FirstFlight" scope="prototype"/>
+    <!-- Cfg Taget class -->
+    <bean id="fpkt" class="com.mypractice.beans.Flipkart">
+        <constructor-arg name="courier" ref="ffCourier"/>
+    </bean>
+
+
+</beans>
