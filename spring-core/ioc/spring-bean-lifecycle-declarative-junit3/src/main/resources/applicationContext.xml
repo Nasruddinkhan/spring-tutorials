@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-init-method="myInit"  default-destroy-method="myDestroy" xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+  
+  <bean id="voter" class="com.mypractice.beans.CheckVotingElgibity" lazy-init="true" >
+       <property name="name" value="Nasruddin"/>
+      <property name="age" value="10"/> 
+      <property name="addrs" value="Mumbai"/>
+     </bean>
+     
+     <bean id="voter1" class="com.mypractice.beans.CheckVotingElgibity" lazy-init="true" >
+       <property name="name" value="Nasruddin"/>
+      <property name="age" value="20"/> 
+      <property name="addrs" value="Mumbai"/>
+     </bean>
+     
+      <bean id="voter2" class="com.mypractice.beans.CheckVotingElgibity" lazy-init="true" >
+       <property name="name" value="Nasruddin"/>
+      <property name="age" value="-10"/> 
+      <property name="addrs" value="Mumbai"/>
+     </bean>
+     
+     <bean id="voter3" class="com.mypractice.beans.CheckVotingElgibity" lazy-init="true">
+      <property name="age" value="-10"/> 
+      <property name="addrs" value="Mumbai"/>
+     </bean>
+     
+     
+</beans>
