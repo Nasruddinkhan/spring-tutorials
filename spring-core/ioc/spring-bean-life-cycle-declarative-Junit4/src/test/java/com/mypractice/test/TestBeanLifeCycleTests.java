@@ -1,23 +1,22 @@
 package com.mypractice.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
+import com.mypractice.beans.CheckVotingElgibity;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.mypractice.beans.CheckVotingElgibity;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class TestBeanLifeCycleTests {
     private static ApplicationContext ctx=null;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		ctx=new ClassPathXmlApplicationContext("resources/applicationContext.xml");
+		ctx=new ClassPathXmlApplicationContext("applicationContext.xml");
 	}
 
 	@AfterClass
@@ -31,9 +30,11 @@ public class TestBeanLifeCycleTests {
 		String actualResult=null,expectedResult=null;
 		voter=ctx.getBean("voter",CheckVotingElgibity.class);
 		actualResult=voter.elgibilityCheck();
-		expectedResult="Mr/Miss. raja u  r not elgible for voting as on ";
-		System.out.println(expectedResult+"   "+actualResult);
-		assertTrue("test1",actualResult.contains(expectedResult));
+		expectedResult="Mr/Miss/Mrs.Nasruddin u  r  elgible for voting as on ";
+		System.out.println("actualResult ["+actualResult+"]");
+		System.out.println("actualResult ["+expectedResult+"]");
+
+		Assert.assertTrue("test1",actualResult.contains(expectedResult));
 	}
 	
 	@Test
@@ -42,7 +43,7 @@ public class TestBeanLifeCycleTests {
 		String actualResult=null,expectedResult=null;
 		voter=ctx.getBean("voter1",CheckVotingElgibity.class);
 		actualResult=voter.elgibilityCheck();
-		expectedResult="Mr/Miss/Mrs.raja u  r  elgible for voting as on ";
+		expectedResult="Mr/Miss/Mrs.Nasruddin u  r  elgible for voting as on ";
 		assertTrue("test2",actualResult.contains(expectedResult));
 	}
 	
@@ -50,7 +51,7 @@ public class TestBeanLifeCycleTests {
 	public void testWithNegetiveAge() {
 		CheckVotingElgibity voter=null;
 		String actualResult=null,expectedResult=null;
-		voter=ctx.getBean("voter2",CheckVotingElgibity.class);
+		voter=ctx.getBean("voter3",CheckVotingElgibity.class);
 		actualResult=voter.elgibilityCheck();
 		fail("Exception is expected here ,but not raised");
 	}

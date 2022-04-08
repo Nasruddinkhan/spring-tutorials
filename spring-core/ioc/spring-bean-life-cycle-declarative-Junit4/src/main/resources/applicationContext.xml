@@ -17,12 +17,12 @@
      
       <bean id="voter2" class="com.mypractice.beans.CheckVotingElgibity" lazy-init="true" >
        <property name="name" value="Nasruddin"/>
-      <property name="age" value="-10"/>
+      <property name="age" value="17"/>
       <property name="addrs" value="hyd"/>
      </bean>
      
      <bean id="voter3" class="com.mypractice.beans.CheckVotingElgibity" lazy-init="true">
-      <property name="age" value="-10"/> 
+      <property name="age" value="-10"/>
       <property name="addrs" value="Pune"/>
      </bean>
      

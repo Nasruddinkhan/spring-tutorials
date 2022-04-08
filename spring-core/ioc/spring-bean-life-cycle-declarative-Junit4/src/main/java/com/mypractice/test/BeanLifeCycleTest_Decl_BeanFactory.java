@@ -14,9 +14,9 @@ public class BeanLifeCycleTest_Decl_BeanFactory {
 		// create IOC container
 		factory=new DefaultListableBeanFactory();
 		reader=new XmlBeanDefinitionReader(factory);
-		reader.loadBeanDefinitions("resources/applicationContext.xml");
+		reader.loadBeanDefinitions("applicationContext.xml");
 		//get Bean
-		elgibility=factory.getBean("voter",CheckVotingElgibity.class);
+		elgibility=factory.getBean("voter3",CheckVotingElgibity.class);
 		//invoke method
 		System.out.println("................");
 		System.out.println(elgibility.elgibilityCheck());

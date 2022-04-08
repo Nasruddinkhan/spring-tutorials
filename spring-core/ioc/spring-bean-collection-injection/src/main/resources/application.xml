@@ -110,8 +110,8 @@
 
 	<util:list id="empList" list-class="java.util.LinkedList"
 		value-type="java.lang.String">
-		<value>raja</value>
-		<value>raja</value>
+		<value>Nasruddin</value>
+		<value>Nasruddin</value>
 		<value>rani</value>
 	</util:list>
 

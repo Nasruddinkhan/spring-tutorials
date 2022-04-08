@@ -15,8 +15,7 @@ public class BeanLifeCycleTest_Decl {
 		ctx=new ClassPathXmlApplicationContext("applicationContext.xml");
 		System.out.println(".....");
 		//get Bean
-		elgibility=ctx.getBean("voter",CheckVotingElgibity.class);
-		elgibility=ctx.getBean("voter",CheckVotingElgibity.class);
+		elgibility=ctx.getBean("voter2",CheckVotingElgibity.class);
 		//invoke method
 		System.out.println("................");
 		System.out.println(elgibility.elgibilityCheck());
