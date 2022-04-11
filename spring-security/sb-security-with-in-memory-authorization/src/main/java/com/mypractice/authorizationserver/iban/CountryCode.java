@@ -1,4 +1,4 @@
-package com.mypractice.iban;
+package com.mypractice.authorizationserver.iban;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,7 +11,9 @@ import java.util.stream.Collectors;
 @Getter
 @AllArgsConstructor
 public enum CountryCode {
-    SA("Saudi Arbia", "SAU");
+    SA("Saudi Arbia", "SAU"),
+    IN("India", "IND"),
+    PK("Pakistan", "Pk");
     private final String name;
     private final String alpha3Char;
 
@@ -35,22 +37,19 @@ public enum CountryCode {
             case 3:
                 return getByAlpha3(code);
             default:
-                throw new RuntimeException("Passing invalid Alpha code! alpha code should be either 2 digit or 3 digit");
+                throw new IbanException("Passing invalid Alpha code! alpha code should be either 2 digit or 3 digit");
         }
 
     }
 
     private static CountryCode getByAlpha3(String code) {
-        return alpha3Map.entrySet().stream().filter(s -> s.getKey().equals(code)).map(m -> m.getValue()).findFirst()
-                .orElseThrow(() -> new RuntimeException("passing invalid Alpha code"));
+        return alpha3Map.entrySet().stream().filter(s -> s.getKey().equals(code)).map(Map.Entry::getValue).findFirst()
+                .orElseThrow(() -> new IbanException("passing invalid Alpha code"));
     }
 
-    private static CountryCode getByAlpha2(String code) {
-        try {
+    private static CountryCode getByAlpha2(String code)  {
+
             return Enum.valueOf(CountryCode.class, code);
-        } catch (Exception e) {
-            throw new RuntimeException("passing invalid Alpha code");
-        }
     }
 
     public String getByAlpha2() {

@@ -1,8 +1,9 @@
-package com.mypractice.iban;
+package com.mypractice.authorizationserver.iban;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,7 +17,7 @@ public class IbanStructureEntry {
     private static Map<EntryCharacterType, char[]> entryCharacterTypeMap;
 
     static {
-        entryCharacterTypeMap = new HashMap<>();
+        entryCharacterTypeMap = new EnumMap<>(EntryCharacterType.class);
         entryCharacterTypeMap.put(EntryCharacterType.N, CommonUtil.getDigits().toCharArray());
         entryCharacterTypeMap.put(EntryCharacterType.A, CommonUtil.getCharacter().toCharArray());
         entryCharacterTypeMap.put(EntryCharacterType.C, (CommonUtil.getDigits().concat(CommonUtil.getCharacter())).toCharArray());

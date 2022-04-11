@@ -1,16 +1,15 @@
-package com.mypractice.iban;
+package com.mypractice.authorizationserver.iban;
 
 
-import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.List;
 
 
 public class IbanStructure {
 
-    private final IbanStructureEntry[] entries;
+    private final List<IbanStructureEntry> entries;
 
-    public IbanStructure(IbanStructureEntry... entries) {
+    public IbanStructure(List<IbanStructureEntry> entries) {
         this.entries = entries;
     }
 
@@ -19,9 +18,15 @@ public class IbanStructure {
     static {
         structures = new EnumMap<>(CountryCode.class);
         structures.put(CountryCode.SA, new IbanStructure(
-                IbanStructureEntry.bankCode(4, 'A'),
-                IbanStructureEntry.branchCode(6, 'N'),
-                IbanStructureEntry.accountNumber(8, 'N')));
+                List.of(IbanStructureEntry.bankCode(4, 'A'),
+                        IbanStructureEntry.branchCode(6, 'N'),
+                        IbanStructureEntry.accountNumber(8, 'N'))));
+        structures.put(CountryCode.IN, new IbanStructure(
+                List.of(IbanStructureEntry.bankCode(4, 'A'),
+                        IbanStructureEntry.branchCode(6, 'N'),
+                        IbanStructureEntry.accountNumber(10, 'C'))));
+        structures.put(CountryCode.PK, new IbanStructure(List.of(
+                IbanStructureEntry.accountNumber(15, 'C'))));
     }
 
     public static IbanStructure forCountry(final CountryCode countryCode) {
@@ -30,15 +35,12 @@ public class IbanStructure {
 
 
     public List<IbanStructureEntry> getEntries() {
-        return List.of(entries);
+        return entries;
     }
 
     public int getIbnLength() {
-        int length = 0;
-        for (IbanStructureEntry entry: entries) {
-            System.out.println(entry.getLength());
-            length+= entry.getLength();
-        }
-        return length;
+        return entries.stream()
+                .map(IbanStructureEntry::getLength)
+                .reduce(0, Integer::sum);
     }
 }

@@ -47,6 +47,7 @@ public class Applistener {
             if (!isDirectoryExsit)
                 sftpSessionFactory.getSession().mkdir("/uploadfile/download/" + map.get("fileName"));
             sftpSessionFactory.getSession().write(new ByteArrayInputStream(str.getBytes()), "/uploadfile/download/" + map.get("fileName"));
+
             publisher.sendMessage("outbound.queue", str);
 
            filePayloadRepo.save(FilePayload.builder().payload(str).build());

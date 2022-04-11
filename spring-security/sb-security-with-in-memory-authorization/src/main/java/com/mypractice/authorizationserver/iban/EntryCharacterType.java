@@ -1,4 +1,4 @@
-package com.mypractice.iban;
+package com.mypractice.authorizationserver.iban;
 
 public enum EntryCharacterType {
     N, //Digit
