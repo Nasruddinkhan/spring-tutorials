@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+    <!-- Configure DAO -->
+    <bean id="regDAO" class="com.mypractice.dao.RegistrationDAOImpl" scope="singleton"/>
+
+    <!-- BO classes cfg -->
+    <bean id="stBO" class="com.mypractice.bo.StudentBO" scope="prototype"/>
+    <bean id="empBO" class="com.mypractice.bo.EmployeeBO" scope="prototype"/>
+
+    <!-- Configure Service class -->
+    <bean id="regService" class="com.mypractice.service.RegistrationServiceImpl" scope="singleton">
+        <property name="dao" ref="regDAO"/>
+        <lookup-method name="createStudentBO" bean="stBO"/>
+        <lookup-method name="createEmployeeBO" bean="empBO"/>
+    </bean>
+
+    <bean id="dbpp" class="com.mypractice.bpp.DOJBeanPostProcessor"/>
+
+</beans>
