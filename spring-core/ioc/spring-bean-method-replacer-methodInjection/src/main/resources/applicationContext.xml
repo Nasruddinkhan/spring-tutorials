@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
-  <!-- cfg Bean classes -->
-   <bean id="handler" class="com.mypractice.beans.RequestHandler" scope="prototype"/>
-   
-   <bean id="container" class="com.mypractice.beans.MyServletContainer" scope="singleton" >
-          <lookup-method name="createRequestHandler"  bean="handler"/>
-   </bean>
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+    <!-- Cfg Method Replacer -->
+    <bean id="irr"  class="com.mypractice.replacer.IntrestRateReplacer">
+        <property name="rate"  value="1.0f"/>
+    </bean>
+    <!-- Cfg Service class  -->
+    <bean id="bank"  class="com.mypractice.service.BankLoanService">
+        <replaced-method  name="calcIntrAmt"  replacer="irr">
+              <arg-type>float</arg-type>
+              <arg-type>float</arg-type>
+        </replaced-method>
+    </bean>
+    
 
 </beans>

@@ -1,9 +1,4 @@
-package com.nt.beans;
-
-import org.springframework.beans.BeansException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+package com.mypractice.beans;
 
 public abstract   class MyServletContainer  {
 	

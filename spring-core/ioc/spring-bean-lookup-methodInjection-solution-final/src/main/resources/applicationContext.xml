@@ -4,10 +4,10 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
   <!-- cfg Bean classes -->
-   <bean id="handler"  class="com.nt.beans.RequestHandler"  scope="prototype"/>
+   <bean id="handler" class="com.mypractice.beans.RequestHandler" scope="prototype"/>
    
-   <bean id="container"  class="com.nt.beans.MyServletContainer" scope="singleton" >
-        <!--  <lookup-method name="createRequestHandler"  bean="handler"/> -->
+   <bean id="container" class="com.mypractice.beans.MyServletContainer" scope="singleton" >
+          <lookup-method name="createRequestHandler"  bean="handler"/>
    </bean>
 
 </beans>

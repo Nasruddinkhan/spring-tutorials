@@ -4,26 +4,21 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.mypractice.beans.MyServletContainer;
+import com.mypractice.service.BankLoanService;
 
-public class LMISolutonTest {
+public class MethodReplacerTest {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx=null;
-		MyServletContainer container=null,container1=null;
+		BankLoanService service=null;
 		//create IOC container
 		ctx=new ClassPathXmlApplicationContext("applicationContext.xml");
-		//get Taget Bean class obj
-		container=ctx.getBean("container",MyServletContainer.class);
+		//get Service class object
+		service=ctx.getBean("bank",BankLoanService.class);
+		System.out.println(service.getClass()+"   "+service.getClass().getSuperclass());
 		//invoke methods
-		container.processRequest("seven wonders");
-		System.out.println(".................................");
-		container.processRequest("xcxvcv");
-		
-		
+		System.out.println(service.calcIntrAmt(100000, 12));
 		//close container
 		((AbstractApplicationContext) ctx).close();
-
 	}
-
 }

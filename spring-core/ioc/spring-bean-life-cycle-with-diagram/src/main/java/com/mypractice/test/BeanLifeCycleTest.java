@@ -17,7 +17,7 @@ public class BeanLifeCycleTest {
 		//get bean
 		bean=ctx.getBean("tb",TestBean.class);
 		System.out.println("2.....");
-		System.out.println("result::"+bean.generateWishMessage("raja"));
+		System.out.println("result::"+bean.generateWishMessage("nasruddin khan"));
 		
 		//close container
 		((AbstractApplicationContext) ctx).close();
