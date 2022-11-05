@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+   <!-- Spring Bean cfg -->
+    <bean id="tb" class="com.mypractice.beans.TestBean" init-method="myInit" destroy-method="myDestroy">
+      <constructor-arg name="age" value="29"/>
+      <property name="name" value="Nasruddin khan"/>
+    </bean>
+    
+    <!-- BeanPostProcessor Configuration -->
+    <bean class="com.mypractice.bpp.MyBeanPostProcessor"/>
+
+</beans>
